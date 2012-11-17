@@ -104,4 +104,18 @@
 
 	// make visible
 	global.Field = Field;
+
+	// Utility method for displaying time
+	global.fpsCount = {
+		init : function() {
+			var elem = document.createElement( 'p' );
+			elem.id = 'fpsCount';
+			document.body.appendChild( elem );
+		},
+		print : function( time ) {
+			var elem = document.getElementById( 'fpsCount' );
+			elem.innerHTML = ( 1000 / time ).toFixed( 1 ) + ' fps';
+		}
+	};
+
 })( Math, this );

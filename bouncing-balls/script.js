@@ -27,11 +27,14 @@
 
 	// begin drawing page
 	(function drawPage( time ) {
-		setTimeout( function() {
+		fpsCount.init();
+		function setReuse() {
 			var tmptime = getTime();
+			fpsCount.print( tmptime - time );
 			myField.clear().draw().dcheck().increment( tmptime - time );
 			drawPage( tmptime );
-		}, 14 + time - getTime());
+		}
+		setTimeout( setReuse, 14 + time - getTime());
 	})( getTime());
 
 	// make visible

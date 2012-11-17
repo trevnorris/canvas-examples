@@ -74,10 +74,13 @@
 
 	// begin drawing page
 	(function drawPage( time ) {
-		setTimeout( function() {
+		fpsCount.init();
+		function setReuse() {
 			var tmptime = getTime();
 			myField.clear().draw().increment( tmptime - time );
+			fpsCount.print( tmptime - time );
 			drawPage( tmptime );
-		}, 14 + time - getTime());
+		}
+		setTimeout( setReuse, 14 + time - getTime());
 	})( getTime());
 })( Math, this );

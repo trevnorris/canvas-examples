@@ -1,0 +1,8 @@
+#fpsCount {
+	color: white;
+	position: fixed;
+	font-size: 0.7em;
+	z-index: 9999;
+	top: 0;
+	left: 10px;
+}
